@@ -11,10 +11,13 @@
 } */
 
 .title {
-    display: flex;
-    z-index: 2;
-    background-color: gray;
-    overflow: auto;
+    /* display: flex; */
+    /* z-index: 2; */
+    /* background-color: gray; */
+    /* overflow: auto; */
+    text-align: center;
+    /* position: absolute; */
+
 }
 
 .table-container {
@@ -24,13 +27,11 @@
 
 .filter {
     position: fixed; /* Makes it so that filter applies when scrolling */
-    width: 100%;
-    height: 100%;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-    /* z-index: 1; */
+    z-index: 0;
 
     /* background: rgb(233,76,161); */
     /* background: -moz-linear-gradient(90deg, rgb(63, 111, 173) 0%, rgb(54, 105, 62)  100%); */
@@ -39,8 +40,6 @@
 
     background: linear-gradient(90deg, rgba(63, 111, 173, 1) 0%, rgba(54, 105, 62, 1)  100%);
     opacity: .85;
-
-    /* background-color: linear-gradient(90deg, rgba(63, 111, 173, 1) 0%, rgba(54, 105, 62, 1)  100%); */
 }
 
 table {
