@@ -1,37 +1,37 @@
-/* EVENT LISTENERS FOR CLICKING ON INDIVIDUAL GIFS */
+/*      EVENT LISTENERS FOR CLICKING ON INDIVIDUAL GIFS       */
 
 const insertionGif = document.getElementById("insertionGif");
 insertionGif.addEventListener('click', changeSize("insertionGif"));
+insertionGif.addEventListener('click', changeSize("insertionBackground"));
 
-const mergeGif = document.getElementById("mergeGif");
-insertionGif.addEventListener('click', changeSize("mergeGif"));
+const mergeGif = document.getElementById("mergeBackground");
+mergeGif.addEventListener('click', changeSize("mergeGif"));
+mergeGif.addEventListener('click', changeSize("mergeBackground"));
 
-const bubbleGif = document.getElementById("bubbleGif");
-insertionGif.addEventListener('click', changeSize("bubbleGif"));
+const bubbleGif = document.getElementById("bubbleBackground");
+bubbleGif.addEventListener('click', changeSize("bubbleGif"));
+document.getElementById("bubbleBackground").addEventListener('click', changeSize("bubbleBackground"));
 
-/*   <-------->   HELPER FUNCTIONS   <-------->   */
+/*   <-------->     HELPER FUNCTIONS     <-------->   */
 
-function changeSize(text) {
-    let gif = document.getElementById(text);
+function changeSize(id) {
+    let element = document.getElementById(id);
     let enlarged = false;
-    gif.onclick = function() {
+    element.onclick = function() {
         if (enlarged) {
-        reduce(text);
-        enlarged = false;
-        console.log("reducing");
+            reduceSize(id);
+            enlarged = false;
         } else {
-        enlarge(text);
-        enlarged = true;
-        console.log("enlarging");
+            enlargeSize(id);
+            enlarged = true;
         }
     }
 };
 
-function enlarge(text) {
-    document.getElementById(text).style.width = '150%';
-    // document.getElementById(text).style.height = '150%';
+function enlargeSize(id) {
+    document.getElementById(id).style.width = '100%';
 };
-function reduce(text) {
-    document.getElementById(text).style.width = '100%';
-    // document.getElementById(text).style.height = '100%';
+function reduceSize(id) {
+    // document.getElementById(id).style.width = '100%';
+    document.getElementById(id).removeAttribute('style'); // !!! SCORE! Removes entire style attribute
 };

@@ -12,7 +12,7 @@
 
 .title {
     /* display: flex; */
-    /* z-index: 2; */
+    z-index: 2;
     /* background-color: gray; */
     /* overflow: auto; */
     text-align: center;
@@ -21,8 +21,8 @@
 }
 
 .table-container {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* REASON #1 FOR TABLE BEING DISPLAYED 'IN FRONT' OF BACKGROUND GRADIENT */
+    /* flex-direction: column; */
 }
 
 .filter {
@@ -43,22 +43,27 @@
 }
 
 table {
-    width: 60%;
+    /* width: 60%; */
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
     /* margin-bottom: 30px; */
-    z-index: 2;
+    z-index: 2; /* REASON #2 FOR TABLE BEING DISPLAYED 'IN FRONT' OF BACKGROUND GRADIENT */
     border-collapse: collapse;
     border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 12px 12px 0 0;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 td , th {
     padding: 12px 15px;
-    text-align: center;
+    text-align: center; 
+    border: 1px solid black;
+}
+.row-increased {
+    width: 150px;
+    height: 50px;
 }
 
 th {
@@ -70,7 +75,7 @@ th {
 }
 
 tr {
-    width: 100%;
+    /* width: 100%; */
     background-color: #fafafa;
     font-family: 'Montserrat', sans-serif;
 }
