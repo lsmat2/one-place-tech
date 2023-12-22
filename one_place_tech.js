@@ -5,8 +5,9 @@ insertionGif.addEventListener('click', changeSize("insertionGif"));
 insertionGif.addEventListener('click', changeSize("insertionBackground"));
 
 const mergeGif = document.getElementById("mergeBackground");
-mergeGif.addEventListener('click', changeSize("mergeGif"));
-mergeGif.addEventListener('click', changeSize("mergeBackground"));
+// mergeGif.addEventListener('click', changeSize("mergeGif"));
+mergeGif.addEventListener('click', changeSize("mergeGif") | changeSize("mergeBackground"));
+// mergeGif.addEventListener('click', changeSize("mergeBackground"));
 
 const bubbleGif = document.getElementById("bubbleBackground");
 bubbleGif.addEventListener('click', changeSize("bubbleGif"));
