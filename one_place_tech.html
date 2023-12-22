@@ -19,47 +19,91 @@
 
     <div class="table-container">
 
-        <table>
+      <table>
+  
+          <tr>
+              <th>Algorithm Name</th>
+              <th>Time Complexity</th>
+              <th>Space Complexity</th>
+              <th>Other Notes</th>
+          </tr>
+      
+          <tr>
+              <td>Insertion Sort</td>
+              <td>O(n^2)</td>
+              <td>O(1)</td>
+              <td>
+                  <img id="insertionGif" src="Insertionsort2.gif">
+              </td>
+          </tr>
+
+          <tr>
+              <td>Merge Sort</td>
+              <td>O(nlog(n))</td>
+              <td>O(n)</td>
+              <td>
+                  <img id="mergeGif" src="Mergesort.gif">
+              </td>
+          </tr>
+
+          <tr>
+              <td>Bubble Sort</td>
+              <td>O(n^2)</td>
+              <td>O(1)</td>
+              <td>
+                  <img id="bubbleGif" src="Bubblesort.gif">
+              </td>
+          </tr>
+          
+      </table>
+
+  </div>
+
+  <div class="title">
+    <h1>GRAPH IMPLEMENTATIONS [n vertecies, m edges]</h1>
+  </div>
+
+  <div class="table-container">
+
+    <table>
+
+        <tr>
+            <th>Implementation Name</th>
+            <th>Insert/Remove Vertex</th>
+            <th>Insert/Remove Edge</th>
+            <th>Incident Edges [vertex]</th>
+            <th>Are Adjacent [vertex, vertex]</th>
+        </tr>
     
-            <tr>
-                <th>Algorithm Name</th>
-                <th>Time Complexity</th>
-                <th>Space Complexity</th>
-                <th>Other Notes</th>
-            </tr>
+        <tr>
+            <td>Edge List</td>
+            <td>Insert: O(n), Remove: O(n+m)</td>
+            <td>Insert: O(m), Remove: O(m)</td>
+            <td>O(m)</td>
+            <td>O(m)</td>
+        </tr>
+
+        <tr>
+            <td>Adjacency Matrix</td>
+            <td>Insert: O(n), Remove: O(n)</td>
+            <td>Insert: O(1), Remove: O(1)</td>
+            <td>O(n)</td>
+            <td>O(1)</td>
+        </tr>
+
+        <tr>
+            <td>Adjacency List</td>
+            <td>Insert: O(1), Remove: O(deg(V))</td>
+            <td>Insert: O(1), Remove: O(min(deg(V), deg(U)))</td>
+            <td>O(deg(V))</td>
+            <td>O(min(deg(V), deg(U)))</td>
+        </tr>
         
-            <tr>
-                <td>Insertion Sort</td>
-                <td>O(n^2)</td>
-                <td>O(1)</td>
-                <td>
-                    <img src="Insertionsort2.gif">
-                </td>
-            </tr>
+    </table>
 
-            <tr>
-                <td>Merge Sort</td>
-                <td>O(nlog(n))</td>
-                <td>O(n)</td>
-                <td>
-                    <img src="Mergesort.gif">
-                </td>
-            </tr>
+</div>
 
-            <tr>
-                <td>Bubble Sort</td>
-                <td>O(n^2)</td>
-                <td>O(1)</td>
-                <td>
-                    <img src="Bubblesort.gif">
-                </td>
-            </tr>
-            
-        </table>
-
-    </div>
-
-    <!--div class="accordion" id="accordionExample">
+    <!-- div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -95,8 +139,8 @@
               <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
             </div>
           </div>
-        </div>
-    </div-->
+        </div -->
+    
 
     <div class="hide">
         <table>
@@ -163,5 +207,6 @@
         </table>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    <script src="one_place_tech.js"></script>
   </body>
 </html>
