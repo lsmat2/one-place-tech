@@ -35,17 +35,20 @@ document.getElementById("bubbleRow").onclick = function() {
 
 function changeSize(id, size) {
     if (size.large) { 
-        reduceSize(id, size); 
+        reduceGif(id, size); 
     } else  { 
-        enlargeSize(id, size); 
+        enlargeGif(id, size); 
     }
 };
 
-function enlargeSize(id, size) {
+function enlargeGif(id, size) {
     size.large = true;
-    document.getElementById(id).style.width = '450px'; // if = '30vw', relative to 'Viewport Width'
+    document.getElementById(id).style.height = '200px'; // if = '30vw', relative to 'Viewport Width'
+    document.getElementById("sortingTable").style.width = '90%';
 };
-function reduceSize(id, size) {
+function reduceGif(id, size) {
     size.large = false;
-    document.getElementById(id).removeAttribute('style'); // Removes entire style attribute
+    // document.getElementById(id).removeAttribute('style'); // Removes entire style attribute
+    document.getElementById(id).style.height = '60px';
+    // document.getElementById("sortingTable").style.width = '70%';
 };
