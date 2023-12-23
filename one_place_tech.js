@@ -1,38 +1,51 @@
+
 /*      EVENT LISTENERS FOR CLICKING ON INDIVIDUAL GIFS       */
 
-const insertionGif = document.getElementById("insertionGif");
-insertionGif.addEventListener('click', changeSize("insertionGif"));
-insertionGif.addEventListener('click', changeSize("insertionBackground"));
+// const insertionGif = document.getElementById("insertionRow");
+// insertionGif.addEventListener('click', changeSize("insertionGif"));
+// insertionGif.addEventListener('click', changeSize("insertionBackground"));
 
-const mergeGif = document.getElementById("mergeBackground");
+// const mergeGif = document.getElementById("mergeBackground");
 // mergeGif.addEventListener('click', changeSize("mergeGif"));
-mergeGif.addEventListener('click', changeSize("mergeGif") | changeSize("mergeBackground"));
 // mergeGif.addEventListener('click', changeSize("mergeBackground"));
 
-const bubbleGif = document.getElementById("bubbleBackground");
-bubbleGif.addEventListener('click', changeSize("bubbleGif"));
-document.getElementById("bubbleBackground").addEventListener('click', changeSize("bubbleBackground"));
+// const bubbleGif = document.getElementById("bubbleBackground");
+// bubbleGif.addEventListener('click', changeSize("bubbleGif"));
+// document.getElementById("bubbleBackground").addEventListener('click', changeSize("bubbleBackground"));
+
+
+/*   <-------->     FUNCTIONALITY (ON CLICK)     <-------->   */
+
+let insertionSize = { large: false };
+document.getElementById("insertionRow").onclick = function() {
+    changeSize("insertionGif", insertionSize);
+};
+
+let mergeSize = { large: false };
+document.getElementById("mergeRow").onclick = function() {
+    changeSize("mergeGif", mergeSize);
+};
+
+let bubbleSize = { large: false };
+document.getElementById("bubbleRow").onclick = function() {
+    changeSize("bubbleGif", bubbleSize);
+};
 
 /*   <-------->     HELPER FUNCTIONS     <-------->   */
 
-function changeSize(id) {
-    let element = document.getElementById(id);
-    let enlarged = false;
-    element.onclick = function() {
-        if (enlarged) {
-            reduceSize(id);
-            enlarged = false;
-        } else {
-            enlargeSize(id);
-            enlarged = true;
-        }
+function changeSize(id, size) {
+    if (size.large) { 
+        reduceSize(id, size); 
+    } else  { 
+        enlargeSize(id, size); 
     }
 };
 
-function enlargeSize(id) {
-    document.getElementById(id).style.width = '100%';
+function enlargeSize(id, size) {
+    size.large = true;
+    document.getElementById(id).style.width = '450px'; // if = '30vw', relative to 'Viewport Width'
 };
-function reduceSize(id) {
-    // document.getElementById(id).style.width = '100%';
-    document.getElementById(id).removeAttribute('style'); // !!! SCORE! Removes entire style attribute
+function reduceSize(id, size) {
+    size.large = false;
+    document.getElementById(id).removeAttribute('style'); // Removes entire style attribute
 };
