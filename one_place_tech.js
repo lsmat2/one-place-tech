@@ -1,3 +1,13 @@
+/*      FUNCTION TO GENERATE INITIAL POSITION OF       */
+
+// var parentDiv = document.getElementById("bubbles");
+// var spans = parentDiv.getElementsByClassName("bub");
+
+// for (var i = 0; i < spans.length; i++) {
+//     var num = spans[i].style.i
+//     // console.log(spans[i].style.--i);
+//     console.log(num);
+// }
 
 /*      EVENT LISTENERS FOR CLICKING ON INDIVIDUAL GIFS       */
 
