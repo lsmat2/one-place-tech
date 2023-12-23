@@ -62,3 +62,8 @@ tr {
 tr:nth-child(even) {
     background-color: #eeeeee;
 }
+
+td {
+    font-size:x-large;
+    text-shadow: 0 4px 4px rgba(64,64,64,.7);
+}
