@@ -23,41 +23,53 @@
 // bubbleGif.addEventListener('click', changeSize("bubbleGif"));
 // document.getElementById("bubbleBackground").addEventListener('click', changeSize("bubbleBackground"));
 
+/*      OPERATIONS FOR CREATING MOVING DOT BACKGROUND       */
+
+function createDotContainer() {
+    let container = document.createElement('div');
+    container.classList.add('dots');
+    container.id = 'dots';
+    document.body.appendChild(container);
+}
+
 function createRandomDots(num) {
-    const numDots = num; // Number of dots to create
-  
-    for (let i = 0; i < numDots; i++) {
+    let container = document.getElementById("dots");
+    for (let i = 0; i < num; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
-        dot.style.top = Math.random() * document.body.clientHeight + 'px'; // 100 + 'vh'; // Random vertical position
-        dot.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-        document.body.appendChild(dot);
+        dot.style.top = Math.floor((Math.random() * document.body.clientHeight)) + 'px'; // 100 + 'vh' : Random vertical position
+        dot.style.left = Math.floor(Math.random() * 100) + 'vw';
+        container.appendChild(dot);
     }
 }
 
-// console.log(document.body.clientHeight);
-// console.log(visualViewport.width);
-
-function changeDotProperties() {
-    const dots = document.querySelectorAll('.dot');
-  
+function updateDotHeight() {
+    const dots = document.querySelectorAll('.dot');   
+    const moveFactor = 2; // CHANGE BASED ON HOW MUCH TO MOVE EACH TIME FUNCTION CALLED
     dots.forEach(dot => {
-        // Lower dots each iteration at constant and random rates
-        const randMovementFactor = Math.floor(Math.random() * 5 + 1);
-        const constMovementFactor = 30;
-
-        const currentHeight = dot.getBoundingClientRect().top;
-        const newHeight = (currentHeight + constMovementFactor + randMovementFactor) % document.body.clientHeight;
-        const newHeightPix = newHeight + 'px';
-        dot.style.top = newHeightPix;
+        const randMovementFactor = Math.floor(Math.random() * 3 + 1);
+        const currentHeight = parseInt(dot.style.top); // Gets height relative to TOP OF PAGE, not viewport
+        // const currentHeight = dot.getBoundingClientRect().top; INTERESTING BEHAVIOR: DOTS MOVE RELATIVE TO VIEWPORT
+        const newHeight = (currentHeight + moveFactor + randMovementFactor) % document.body.clientHeight;
+        const newHeightPx = newHeight + 'px';
+        dot.style.top = newHeightPx;
     });
-    const height = dots[0].getBoundingClientRect().top;
-    const newHeightPix = (height + 1) + 'px';
-    dots[0].style.top = newHeightPix;
-    // console.log(newHeightPix);
-    // console.log(dots[0].style.top);
 }
 
+function deleteDots() {
+    const container = document.getElementById("dots");
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(function(element) {
+        element.remove();
+    });
+    container.remove();
+}
+
+function initDots(numDots, speed) {
+    createDotContainer();
+    createRandomDots(numDots);
+    return setInterval(updateDotHeight, speed);
+}
 
 
 
@@ -100,9 +112,4 @@ function reduceGif(id, size) {
     // document.getElementById("sortingTable").style.width = '70%';
 };
 
-function initialize() {
-    createRandomDots(30);
-    setInterval(changeDotProperties, 30);
-}
-
-initialize();
+initDots(100, 30);

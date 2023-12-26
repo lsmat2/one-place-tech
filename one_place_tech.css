@@ -11,9 +11,12 @@ body {
     z-index: -1;
     width: 3px; /* Adjust the size of the dots */
     height: 3px; /* Adjust the size of the dots */
-    background-color: #ffffff; /* Change this to your desired dot color */
+    background: #ffffff; /* Change this to your desired dot color */
     border-radius: 50%; /* Makes the dot circular */
-  }
+    box-shadow: 0 0 0 0px rgb(68, 68, 68),
+    0 0 5px rgb(88, 88, 88),
+    0 0 7px rgb(255, 255, 255)
+}
 
 /* ---------------- SECTIONS ---------------- */
 
@@ -34,7 +37,7 @@ body {
 
 .Sorting .gif {
     height: 60px;
-    border:3px solid black;
+    border: 3px solid black;
     user-select: none;
 }
 
